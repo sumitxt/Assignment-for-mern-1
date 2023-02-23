@@ -35,7 +35,7 @@ exports.login = (req, res) => {
 
 exports.profileUpdate = (req, res) => {
     let email = req.headers['email'];
-    console.log(email)
+    // console.log(email)
     let reqBody = req.body;
     Users.updateOne({email: email}, reqBody, (err, data) => {
         if (err) {

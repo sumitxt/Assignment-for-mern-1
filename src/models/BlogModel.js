@@ -5,5 +5,5 @@ const BlogSchema = mongoose.Schema({
     content: {type: String},
     createdDate: {type: Date, default: Date.now()}
 }, {versionKey: false});
-const Blogs = mongoose.model('tasks', BlogSchema);
+const Blogs = mongoose.model('blogs', BlogSchema);
 module.exports = Blogs
