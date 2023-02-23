@@ -1,10 +1,10 @@
-var jwt = require('jsonwebtoken');
+let jwt = require('jsonwebtoken');
 const Users = require("../models/UserModel");
 
 
 // This piece of code decodes the Token from headers and sets email and authors name in headers for further use
 
-exports.requireSignin = (req, res, next) => {
+exports.requireSignIn = (req, res, next) => {
     let Token = req.headers['token'];
     jwt.verify(Token, "SecretKey123", function (err, decoded) {
         if (err) {
@@ -26,7 +26,7 @@ exports.requireSignin = (req, res, next) => {
 }
 
 // This piece of code checks if the user is an admin or not.
-// Please manually change default value 0 to 1 in database to set an user as admin.
+// Please manually change default value 0 to 1 in database to set a user as admin.
 
 exports.isAdmin = async (req, res, next) => {
     try {

@@ -52,3 +52,35 @@ exports.blogDetails = (req, res) => {
         }
     })
 }
+
+exports.blogByAuthor = (req, res) => {
+    let author = req.query.author;
+    console.log(author)
+    BlogModel.aggregate([
+        {$match: {author: author}},
+        {$project: {_id: 1, title: 1, author: 1, content: 1, createdDate: 1}}
+    ], (err, data) => {
+        if (err) {
+            res.status(400).json({status: "fail", data: err})
+        } else {
+            res.status(200).json({status: "success", data: data})
+        }
+    })
+}
+
+exports.blogSearch = async (req, res) => {
+    try {
+        let keyword = req.query.keyword;
+        const found = await BlogModel.find({
+            $or: [
+                { title: { $regex: keyword, $options: "i" } },
+                { content: { $regex: keyword, $options: "i" } },
+                { author: { $regex: keyword, $options: "i" } },
+            ],
+        })
+
+        res.json(found);
+    } catch (err) {
+        console.log(err);
+    }
+};
