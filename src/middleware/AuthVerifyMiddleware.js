@@ -6,7 +6,7 @@ module.exports = (req, res, next) => {
             console.log(Token)
             res.status(401).json({status: "unauthorized"})
         } else {
-            let email = decoded['data'];
+            let email = decoded['data'][0]['email'];
             console.log(email)
             req.headers.email = email
             next();

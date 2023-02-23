@@ -15,7 +15,7 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 
 //config input
-require('dotenv').config({path:'./config.env'})
+require('dotenv').config({path: './config.env'})
 
 // Security Middleware Implement
 app.use(cors());
@@ -34,9 +34,9 @@ app.use(limiter)
 
 // Mongo DB Database Connection
 mongoose.set('strictQuery', true);
-let URI=process.env.URI;
-let OPTION={user:process.env.DB_USER,pass:process.env.DB_PASS,autoIndex:true}
-mongoose.connect(URI,OPTION,(error)=>{
+let URI = process.env.URI;
+let OPTION = {user: process.env.DB_USER, pass: process.env.DB_PASS, autoIndex: true}
+mongoose.connect(URI, OPTION, (error) => {
     console.log("Connection Success")
     console.log(error)
 })
