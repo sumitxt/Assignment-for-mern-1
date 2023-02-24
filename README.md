@@ -3,6 +3,10 @@
 A backend for a web application using the MERN stack. The application is a simple blog site where users can create and
 read blog posts.
 
+# Postman documentation
+
+https://documenter.getpostman.com/view/23278287/2s93CPpByA
+
 # tasks
 
 <input type="checkbox" disabled checked /> Created a new Node.js project using npm init. Installed the necessary dependencies using npm install.<br>
